@@ -27,7 +27,6 @@
 | condition_id       | integer    | null: false                    |
 | day_id             | integer    | null: false                    |
 | price              | integer    | null: false                    |
-| image              | string     | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association ###
@@ -40,7 +39,6 @@
 |------------|------------|--------------------------------|
 | user       | references | null: false, foreign_key: true |
 | item       | references | null: false, foreign_key: true |
-| address    | references | null: false, foreign_key: true |
 
 ### Association ###
 - belongs_to :user
@@ -54,9 +52,10 @@
 | post_code     | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
+| block         | string     | null: false                    |
 | building      | string     |                                |
 | tel           | string     | null: false                    |
-| cart_item      | references | null: false, foreign_key: true |
+| cart_item     | references | null: false, foreign_key: true |
 
 ### Association ###
 - belongs_to :cart_item
