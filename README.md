@@ -1,24 +1,58 @@
-# README
+## users テーブル ##
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| nickname           | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| name               | string | null: false |
+| kana_name          | string | null: false |
+| birthday           | date   | null: false |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_one :cartItem
 
-* Ruby version
 
-* System dependencies
+## itemsテーブル ##
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| name        | string     | null: false                    |
+| description | string     | null: false                    |
+| category    | string     | null: false                    |
+| method      | string     | null: false                    |
+| source      | string     | null: false                    |
+| condition   | string     | null: false                    |
+| day         | string     | null: false                    |
+| price       | integer    | null: false                    |
+| image       | string     | null: false                    |
+| user_id     | references | null: false, foreign_key: true |
 
-* Configuration
+### Association ###
+- belongs_to :user
+- has_one :cartItem
 
-* Database creation
 
-* Database initialization
+## CartItemsテーブル ##
+| Column  | Type       | Options                        |
+|---------|------------|--------------------------------|
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association ###
+- belongs_to :user
+- belongs_to :item
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Addressテーブル ##
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| post_code   | string     | null: false                    |
+| prefecture  | string     | null: false                    |
+| city        | string     | null: false                    |
+| building    | string     | null: false                    |
+| tel         | string     | null: false                    |
+| cartItem_id | references | null: false, foreign_key: true |
 
-* ...
+### Association ###
+- belongs_to :cartItem
