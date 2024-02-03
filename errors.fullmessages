@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/yidong4510/projects/furima-40216/spec/models/user_spec.rb:26 :
+
+    [1;34m21[0m:       @user.valid?
+    [1;34m22[0m:       expect(@user.errors.full_messages).to include([31m[1;31m"[0m[31mPassword can't be blank[1;31m"[0m[31m[0m)
+    [1;34m23[0m:     [32mend[0m
+    [1;34m24[0m:     it [31m[1;31m'[0m[31mlast_nameが空では登録できない[1;31m'[0m[31m[0m [32mdo[0m
+    [1;34m25[0m:       @user.last_name = [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m
+ => [1;34m26[0m:       binding.pry
+    [1;34m27[0m:       @user.valid?
+    [1;34m28[0m:       expect(@user.errors.full_messages).to include([31m[1;31m"[0m[31mLast_name can't be blank[1;31m"[0m[31m[0m)
+    [1;34m29[0m:     [32mend[0m
+    [1;34m30[0m: [1;34m=begin[0m
+    [1;34m31[0m:     it [31m[1;31m'[0m[31mfirst_nameが空では登録できない[1;31m'[0m[31m[0m [32mdo[0m
+
