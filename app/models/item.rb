@@ -2,9 +2,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :price, inclusion: { in: 300..9999999, message: "must be between 300 and 9,999,999" }
-  validates :name, length: { maximum: 40, message: "must be within 40 characters" }
-  validates :description, length: { maximum: 1000, message: "must be within 1000 characters" }
+  validates :price, inclusion: { in: 300..9_999_999, message: 'must be between 300 and 9,999,999' }
+  validates :name, length: { maximum: 40, message: 'must be within 40 characters' }
+  validates :description, length: { maximum: 1000, message: 'must be within 1000 characters' }
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -16,7 +16,7 @@ class Item < ApplicationRecord
   validates :name, :description, :price, :user_id, presence: true
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :condition_id, numericality: { other_than: 1, message: "can't be blank"}
+  validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_charge_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :day_id, numericality: { other_than: 1, message: "can't be blank" }

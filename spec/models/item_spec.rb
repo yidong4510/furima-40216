@@ -55,22 +55,22 @@ RSpec.describe Item, type: :model do
       it 'priceに300円未満は登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be between 300 and 9,999,999")
+        expect(@item.errors.full_messages).to include('Price must be between 300 and 9,999,999')
       end
       it 'priceに10,000,000円以上は登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be between 300 and 9,999,999")
+        expect(@item.errors.full_messages).to include('Price must be between 300 and 9,999,999')
       end
       it 'nameは40文字までしか登録できない' do
-        @item.name = "a" * 41
+        @item.name = 'a' * 41
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name must be within 40 characters")
+        expect(@item.errors.full_messages).to include('Name must be within 40 characters')
       end
       it 'descriptionは1000文字までしか登録できない' do
-        @item.description = "a" * 1001
+        @item.description = 'a' * 1001
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description must be within 1000 characters")
+        expect(@item.errors.full_messages).to include('Description must be within 1000 characters')
       end
     end
   end

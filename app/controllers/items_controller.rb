@@ -2,9 +2,11 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :delete]
   def index
   end
+
   def new
     @item = Item.new
   end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -14,10 +16,10 @@ class ItemsController < ApplicationController
     end
   end
 
-
-
   private
+
   def item_params
-    params.require(:item).permit(:image, :name, :description, :category_id, :shipping_charge_id, :prefecture_id, :condition_id, :day_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :description, :category_id, :shipping_charge_id, :prefecture_id, :condition_id,
+                                 :day_id, :price).merge(user_id: current_user.id)
   end
 end
