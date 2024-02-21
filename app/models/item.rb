@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :day
 
-  validates :name, :description, :price, :user_id, presence: true
+  validates :name, :description, :price, presence: true
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
