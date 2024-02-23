@@ -75,12 +75,12 @@ RSpec.describe Item, type: :model do
       it 'priceは半角数字以外の場合登録できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it 'userと紐づいていない場合登録できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
       it 'imageが空の場合登録できない' do
         @item.image.detach

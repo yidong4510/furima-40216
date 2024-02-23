@@ -2,7 +2,8 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :price, numericality: {only_integer: true}, inclusion: { in: 300..9_999_999, message: 'must be between 300 and 9,999,999' }
+  validates :price, numericality: { only_integer: true },
+                    inclusion: { in: 300..9_999_999, message: 'must be between 300 and 9,999,999' }
   validates :name, length: { maximum: 40, message: 'must be within 40 characters' }
   validates :description, length: { maximum: 1000, message: 'must be within 1000 characters' }
   validates :image, presence: true
