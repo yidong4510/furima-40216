@@ -22,16 +22,15 @@
         <%= @item.shipping_charge.name %>
       </span>
     </div>
-
-    <%# if 商品が購入されていない %>
-      <% if user_signed_in? && current_user.id == @item.user.id %>
+    <% if user_signed_in? %>
+      <% if current_user.id == @item.user.id %>
       <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", "#", data: {turbo_method: :delete}, class:"item-destroy" %>
-      <% elsif user_signed_in? %>
+      <% else %>
       <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
       <% end %>
-    <%# end %>
+    <% end %>
 
     <div class="item-explain-box">
       <span><%= @item.description %></span>
