@@ -94,28 +94,28 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it '全角文字を含むパスワードでは登録できない' do
-        @user.password = 'Ａ' + Faker::Internet.password(min_length: 6)
+        @user.password = "Ａ#{Faker::Internet.password(min_length: 6)}"
         @user.password_confirmation = @user.password
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it '姓（全角）に半角文字が含まれていると登録できない' do
-        @user.last_name = 'half' + Faker::Japanese::Name.first_name
+        @user.last_name = "half#{Faker::Japanese::Name.first_name}"
         @user.valid?
         expect(@user.errors.full_messages).to include('Last name is invalid')
       end
       it '名（全角）に半角文字が含まれていると登録できない' do
-        @user.first_name = 'half' + Faker::Japanese::Name.first_name
+        @user.first_name = "half#{Faker::Japanese::Name.first_name}"
         @user.valid?
         expect(@user.errors.full_messages).to include('First name is invalid')
       end
       it '姓（カナ）にカタカナ以外の文字が含まれていると登録できない' do
-        @user.kana_last_name = 'あ' + Faker::Japanese::Name.last_name.yomi
+        @user.kana_last_name = "あ#{Faker::Japanese::Name.last_name.yomi}"
         @user.valid?
         expect(@user.errors.full_messages).to include('Kana last name is invalid')
       end
       it '名（カナ）にカタカナ以外の文字が含まれていると登録できない' do
-        @user.kana_first_name = 'あ' + Faker::Japanese::Name.first_name.yomi
+        @user.kana_first_name = "あ#{Faker::Japanese::Name.first_name.yomi}"
         @user.valid?
         expect(@user.errors.full_messages).to include('Kana first name is invalid')
       end
