@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="vOLGuVaA84_tdorsmV8e" name="ページ1">
-        <mxGraphModel dx="409" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="463" dy="511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -234,7 +234,7 @@
                 <mxCell id="136" value="tel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="150" y="660" width="40" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="137" value="cartItems" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                <mxCell id="137" value="orders" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="450" y="570" width="200" height="96" as="geometry"/>
                 </mxCell>
                 <mxCell id="138" value="user_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="137" vertex="1">
@@ -305,22 +305,22 @@
                 <mxCell id="161" value="condition" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="490" y="320" width="70" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="162" value="" style="line;strokeWidth=1;rotatable=0;dashed=0;labelPosition=right;align=left;verticalAlign=middle;spacingTop=0;spacingLeft=6;points=[];portConstraint=eastwest;" vertex="1" parent="1">
+                <mxCell id="162" value="" style="line;strokeWidth=1;rotatable=0;dashed=0;labelPosition=right;align=left;verticalAlign=middle;spacingTop=0;spacingLeft=6;points=[];portConstraint=eastwest;" parent="1" vertex="1">
                     <mxGeometry x="130" y="690" width="180" height="10" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="purchaces_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="163" value="purchaces_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="130" y="700" width="90" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="164" value="has_many :items&lt;br&gt;has_one :cartItems" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                <mxCell id="164" value="has_many :items&lt;br&gt;has_one :order" style="whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="190" y="110" width="130" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="165" value="belongs_to :users&lt;br&gt;has_one :cartItems" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                <mxCell id="165" value="belongs_to :users&lt;br&gt;has_one :orders" style="whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="620" y="110" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" value="belongs_to :users&lt;br&gt;belongs_to :items&lt;br&gt;has_one :address" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                <mxCell id="166" value="belongs_to :users&lt;br&gt;belongs_to :items&lt;br&gt;has_one :address" style="whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="590" y="536" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="belongs_to :cartItems" style="whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                <mxCell id="167" value="belongs_to :order" style="whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
                     <mxGeometry x="250" y="496" width="130" height="40" as="geometry"/>
                 </mxCell>
             </root>
