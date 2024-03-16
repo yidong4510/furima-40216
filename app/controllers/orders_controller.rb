@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :move_to_index, only: [:index]
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
 
@@ -23,7 +22,11 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_address).permit(:post_code, :prefecture_id, :city, :block, :building, :tel, :order_id).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:order_address).permit(:post_code, :prefecture_id, :city,
+                                          :block, :building, :tel, :order_id)
+                                          .merge(user_id: current_user.id,
+                                                 item_id: params[:item_id],
+                                                 token: params[:token])
   end
   
   def pay_item
@@ -33,5 +36,11 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_index
+    @item = Item.find(params[:item_id])
+    return if current_user.id != @item.user.id
+    redirect_to root_path
   end
 end

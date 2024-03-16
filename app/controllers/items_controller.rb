@@ -47,7 +47,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     return if current_user.id == @item.user.id
-
     redirect_to action: :index
   end
 
