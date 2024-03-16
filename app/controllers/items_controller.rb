@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
+  before_action :already_bought, only: [:edit]
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
@@ -52,5 +53,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def already_bought
+    return if @item.order.blank?
+    redirect_to action: :index
   end
 end
