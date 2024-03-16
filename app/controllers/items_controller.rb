@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
 
   def move_to_index
     return if current_user.id == @item.user.id
+
     redirect_to action: :index
   end
 
@@ -57,6 +58,7 @@ class ItemsController < ApplicationController
 
   def already_bought
     return if @item.order.blank?
+
     redirect_to action: :index
   end
 end
