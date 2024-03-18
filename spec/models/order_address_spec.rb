@@ -64,7 +64,7 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include('Tel is not a number')
       end
       it 'telは9桁以下では保存できない' do
-        @order_address.tel = '09001234'
+        @order_address.tel = '09012345'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Tel must be 10 or 11 half-width digits')
       end
