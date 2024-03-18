@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_many :cart_items
+- has_many :orders
 
 
 ## itemsテーブル ##
@@ -31,10 +31,10 @@
 
 ### Association ###
 - belongs_to :user
-- has_one :cart_item
+- has_one :order
 
 
-## CartItemsテーブル ##
+## Ordersテーブル ##
 | Column     | Type       | Options                        |
 |------------|------------|--------------------------------|
 | user       | references | null: false, foreign_key: true |
@@ -58,4 +58,4 @@
 | cart_item     | references | null: false, foreign_key: true |
 
 ### Association ###
-- belongs_to :cart_item
+- belongs_to :order
